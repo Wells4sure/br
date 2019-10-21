@@ -1,19 +1,36 @@
 <template>
 <div class="container">
-<h1 class="form-heading">BUSINESS REWARDS</h1>
+<h1 class="form-heading text-center">CAKE BAR REWARDS</h1>
 <div class="login-form">
 <div class="main-div">
     <div class="panel">
     
-   <img :src="'public/images/companylogos/'+camplogo" class="img-responsive mb-2" alt="The cakebar">
+  <img class="justify-center" :src="'public/images/companylogos/'+camplogo" alt="The cakebar">
 
-   <p>Please enter your email/Phone and password</p>
+   <p class="text">Register Here</p>
    </div>
    <p class="err_msg" v-if="errorMessages" v-text="errorMessages"> <span class="fas fa-times"></span></p>
-    <form id="Login" @submit.prevent="" v-on:keyup.enter="submit">
+    <form id="Login" @submit.prevent="">
+ 
+       
+       <div class="form-group">
+            <input type="text" class="form-control" id="inputName" placeholder="Enter Your First Name"  v-model="firstname">
 
+        </div>
         <div class="form-group">
-            <input type="text" class="form-control" id="inputEmail" placeholder="Phone or Email Address"  v-model="emailorPhone">
+            <input type="text" class="form-control" id="inputLastName" placeholder="Enter Your LastName Name"  v-model="lastname">
+
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="inputEmail" placeholder="Enter Your Email Address"  v-model="email">
+
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="inputPhone" placeholder="Enter Your Phone Number"  v-model="mobile">
+
+        </div>
+        <div class="form-group datepicker">
+            <input type="text" class="form-control" id="inputDateofBirth" placeholder="Date of Birth (dd/mm/yyyy)"  v-model="date_of_birth">
 
         </div>
 
@@ -22,14 +39,12 @@
             <input type="password" class="form-control" id="inputPassword" placeholder="Password" v-model="password">
 
         </div>
-        <div class="forgot">
-        <a href="pin_request.php">Forgot password?</a>
+      <div class="text-center">
+        <button  class="btn btn-primary"  @click="submit">Register</button>
+      </div>
+      <div class="forgot">
+        <a href="index.php">Have an account? Login Here</a>
 </div>
-        <button  class="btn btn-primary"  @click="submit">Login</button>
-         <div class="forgot">
-        <a href="register.php">Need an account? Register here</a>
-</div>
-
     </form>
     </div>
 <p class="botto-text">Powered by Book Now Zambia</p>
@@ -51,8 +66,8 @@
 .main-div {
   background: #ffffff none repeat scroll 0 0;
   border-radius: 2px;
-  margin: 10px auto 30px;
-  max-width: 38%;
+  margin: auto auto auto;
+  max-width: 600px;
   padding: 50px 70px 70px 71px;
 }
 
@@ -76,7 +91,7 @@
   padding: 0;
 }
 .forgot {
-  text-align: left; margin-bottom:30px;
+  text-align: left; margin-bottom:auto;
 }
 .botto-text {
   color: #ffffff;
@@ -99,28 +114,24 @@ p.err_msg span{
     cursor: pointer;
     color:brown;
 }
- @media screen and (max-width: 767px) {
-  .main-div {
-    max-width: 90%;
-  }
-}
+
+
 </style>
 
 <script>
     export default {
         name:'login',
-        props: [
-            'camplogo',
-            'company'
-        ],
         data() {
               return {
                 submitStatus: null,
-                  emailorPhone: '',
+                  company_id: 18,
+                  firstname: '',
+                  lastname: '',
+                  email: '',
+                  mobile: '',
+                  date_of_birth: '',
                   password:'',
                   errorMessages: '',
-                  companyid: this.company,
-
               
               }
           },
@@ -130,14 +141,17 @@ p.err_msg span{
         
 
               let data = new FormData();
-              data.append('emailorPhone', this.emailorPhone);
+              data.append('company_id', this.company_id);
+              data.append('firstname', this.firstname);
+              data.append('lastname', this.lastname);
+              data.append('email', this.email);
+              data.append('mobile', this.mobile);
+              data.append('date_of_birth', this.date_of_birth);
               data.append('password', this.password);
-              data.append('company_id', this.companyid);
 
-              axios.post("http://testrewardsapi.dczambia.com/v1/login?company_id="+this.companyid, data)
+              axios.post('http://testrewardsapi.dczambia.com/v1/register?company_id=18', data)
                 .then(response => {
                   //if response error == true
-
                   if(response.data.error === true){
                 
                     this.errorMessages=response.data.message
@@ -146,9 +160,8 @@ p.err_msg span{
                     const customer=response.data;
 
                     sessionStorage.setItem('person',JSON.stringify(customer));
-                    window.location.assign('home.php');
+                    window.location.assign('success.php');
                     
-
                   }
                 }).catch(error => {
                 
