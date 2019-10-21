@@ -2,9 +2,9 @@
 
 session_start();
 
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '123456');
+define('DB_SERVER', 'testdczambia.crwpdwfieesc.eu-west-1.rds.amazonaws.com');
+define('DB_USERNAME', 'dotcom_lars');
+define('DB_PASSWORD', 'f1eRTall1');
 define('DB_NAME', 'dotcomrewards');
 
 /* Attempt to connect to MySQL database */

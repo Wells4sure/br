@@ -10,7 +10,7 @@ Vue.component('earned-rewards', require('./components/EarnedRewards.vue').defaul
 Vue.component('redemption-comp', require('./components/RedemptionComp.vue').default);
 Vue.component('earning-comp', require('./components/EarningComp.vue').default);
 Vue.component('profile-comp', require('./components/ProfileComp.vue').default);
-Vue.component('my-profile', require('./components/sections/MyProfile.vue').default);
+Vue.component('register-comp', require('./components/RegisterComp.vue').default);
 
 const app = new Vue({
     el: '#app',
