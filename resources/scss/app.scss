@@ -1,0 +1,12 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// variables
+@import 'variables';
+
+// loginForm
+@import 'loginForm';
