@@ -31,8 +31,8 @@
             </div>
         </li>
         <li class="nav-item dropdown <?php echo ($_SERVER['PHP_SELF'] == '/BR/profile.php'  ? ' active' : '');?>">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-               Profile
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop myname" data-toggle="dropdown">
+               <my-profile>
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="profile.php"> My Profile</a>

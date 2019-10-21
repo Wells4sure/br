@@ -64,7 +64,7 @@ export default {
             }
         },
       mounted() {
-             axios.get('http://testrewardsapi.dczambia.com/v1/rewards_redeemed?customer_id=15&company_id=14')
+             axios.get('http://testrewardsapi.dczambia.com/v1/rewards_redeemed?customer_id=15&company_id=18')
               .then(response => {
                   if(response.data.error === true){
                       this.error_msg = 'Failed To load data'

@@ -29,7 +29,7 @@
 
     </form>
     </div>
-<p class="botto-text">Powered by Book Now Zambia</p>
+<!-- <p class="botto-text">Powered by Book Now Zambia</p> -->
 </div>
 </div>
 </template>
