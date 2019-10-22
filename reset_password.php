@@ -16,7 +16,7 @@
 <body>
     <div id="app" style="background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('public/images/patn_blck.jpeg'); background-size: cover;
     background-repeat: no-repeat; background-position:50%; padding:20px ; ">
-        <reset-password> :company="'<?php echo $company_id?>'" :camplogo="'<?php echo $image_path ?>'"/>
+        <reset-password :company="'<?php echo $company_id?>'" :camplogo="'<?php echo $image_path ?>'"/>
     </div>
     <script src="public/js/app.js"></script>
     <script src="https://kit.fontawesome.com/a614006877.js" crossorigin="anonymous"></script>
