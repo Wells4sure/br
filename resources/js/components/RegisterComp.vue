@@ -28,7 +28,7 @@
 
         </div>
         <div class="form-group datepicker">
-            <input type="text" class="form-control" id="inputDateofBirth" placeholder="Date of Birth (dd/mm/yyyy)"  v-model="date_of_birth">
+            <input type="date" class="form-control" id="inputDateofBirth" placeholder="Date of Birth (dd/mm/yyyy)"  v-model="date_of_birth">
 
         </div>
 
@@ -173,7 +173,7 @@ img.img-responsive.mb-2 {
                 .then(response => {
                   //if response error == true
 
-                  if(response.data.error === true){
+                  if(response.data.error == true){
                 
                     this.errorMessages=response.data.message
                   }else{

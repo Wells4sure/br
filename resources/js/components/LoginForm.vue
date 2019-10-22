@@ -148,7 +148,7 @@ img.img-responsive.mb-2 {
                 .then(response => {
                   //if response error == true
 
-                  if(response.data.error === true){
+                  if(response.data.error == true){
                 
                     this.errorMessages=response.data.message
                   }else{

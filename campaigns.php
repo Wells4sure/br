@@ -66,7 +66,7 @@
 
     <div class="row featurette" id="deals" >
       <div class="col-md-12">
-       <campaigns-comp/>
+       <campaigns-comp/>>
         <!-- <p class="lead">There are no deals or promotions ath the moment check again later. </p> -->
       </div>
 
@@ -93,6 +93,3 @@
     <script src="https://kit.fontawesome.com/a614006877.js" crossorigin="anonymous"></script>
 </body>
 </html>
-<script>
-    console.log(sessionStorage.getItem('person'));
-</script>

@@ -39,7 +39,7 @@
 
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Confirm New Password" v-model="confirmpass">
+            <input type="password" class="form-control" id="inputPassword2" placeholder="Confirm New Password" v-model="confirmpass">
         </div>
    
         <button  class="btn btn-primary"  @click="submit_pass">SAVE</button>
@@ -159,12 +159,12 @@ img.img-responsive.mb-2 {
         submit_phone(){
            this.errorMessages='';
            let data = new FormData();
-           data.append('emailorPhone', this.phone);
+           data.append('mobile', this.phone);
            data.append('company_id', this.companyid);
 
           axios.post("http://testrewardsapi.dczambia.com/v1/pin_request", data)
            .then(response => {
-             if(response.data.error === true){
+             if(response.data.error == true){
                this.errorMessages=response.data.message
              }else{
               this.form1 =false;
@@ -177,10 +177,10 @@ img.img-responsive.mb-2 {
         
               if(this.newpass !=this.confirmpass){
                  this.errorMessages='Passwords Do not match';
-              }
+              }else{
               let data = new FormData();
               data.append('pin', this.otp);
-              data.append('phone', this.phone);
+              data.append('mobile', this.phone);
               data.append('company_id', this.companyid);
               data.append('new_password', this.confirmpass);
 
@@ -193,13 +193,21 @@ img.img-responsive.mb-2 {
                     this.errorMessages=response.data.message
                   }else{
                     //redirect to success page
+                    
+                  
+                    var r = confirm("You have successfully changed your password");
+                    if (r == true) {
+                        window.location.assign('index.php?q='+comphash);
+                    } else {
+                    
+                    }
                   }
                 }).catch(error => {
                 
          
                 })
 
-            
+          }
         },
       }
     }

@@ -72,7 +72,8 @@ export default {
             }
         },
       mounted() {
-             axios.get('http://testrewardsapi.dczambia.com/v1/rewards_earned?customer_id=15&company_id=18')
+            var company = JSON.parse(sessionStorage.getItem('person'));
+             axios.get('http://testrewardsapi.dczambia.com/v1/rewards_earned?customer_id='+company.customer.customer_id+'&company_id='+company.companies.company_id)
               .then(response => {
                   if(response.data.error === true){
                       this.error_msg = 'Failed To load data'

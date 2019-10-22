@@ -1921,18 +1921,18 @@ __webpack_require__.r(__webpack_exports__);
       'error_msg': ''
     };
   },
+  beforeCreate: function beforeCreate() {},
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('http://testrewardsapi.dczambia.com/v1/reward_campaigns?company_id=18').then(function (response) {
+    var company = JSON.parse(sessionStorage.getItem('person'));
+    axios.get('http://testrewardsapi.dczambia.com/v1/reward_campaigns?company_id=' + company.companies.company_id).then(function (response) {
       if (response.data.error === true) {
         _this.error_msg = 'Failed To load data';
       } else {
         _this.campaigns = response.data.reward_campaigns;
       }
-    })["catch"](function (error) {
-      console.log('failed');
-    });
+    })["catch"](function (error) {});
   }
 });
 
@@ -2046,7 +2046,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('http://testrewardsapi.dczambia.com/v1/rewards_earned?customer_id=15&company_id=18').then(function (response) {
+    var company = JSON.parse(sessionStorage.getItem('person'));
+    axios.get('http://testrewardsapi.dczambia.com/v1/rewards_earned?customer_id=' + company.customer.customer_id + '&company_id=' + company.companies.company_id).then(function (response) {
       if (response.data.error === true) {
         _this.error_msg = 'Failed To load data';
       } else {
@@ -2137,7 +2138,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('http://testrewardsapi.dczambia.com/v1/transactions?company_id=14&customer_id=15').then(function (response) {
+    var company = JSON.parse(sessionStorage.getItem('person'));
+    axios.get('http://testrewardsapi.dczambia.com/v1/transactions?company_id=' + company.companies.company_id + '&customer_id=' + company.customer.customer_id + '').then(function (response) {
       if (response.data.error === true) {
         _this.error_msg = 'Failed To load data';
       } else {
@@ -2300,7 +2302,7 @@ __webpack_require__.r(__webpack_exports__);
       data.append('company_id', this.companyid);
       axios.post("http://testrewardsapi.dczambia.com/v1/login?company_id=" + this.companyid, data).then(function (response) {
         //if response error == true
-        if (response.data.error === true) {
+        if (response.data.error == true) {
           _this.errorMessages = response.data.message;
         } else {
           //collect data for session
@@ -2383,7 +2385,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('http://testrewardsapi.dczambia.com/v1/points?customer_id=22&company_id=18').then(function (response) {
+    var company = JSON.parse(sessionStorage.getItem('person'));
+    axios.get('http://testrewardsapi.dczambia.com/v1/points?customer_id=' + company.customer.customer_id + '&company_id=' + company.companies.company_id + '').then(function (response) {
       if (response.data.error === true) {
         _this.error_msg = 'Failed To load data';
       } else {
@@ -2545,7 +2548,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('http://testrewardsapi.dczambia.com/v1/rewards_redeemed?customer_id=15&company_id=18').then(function (response) {
+    var company = JSON.parse(sessionStorage.getItem('person'));
+    axios.get('http://testrewardsapi.dczambia.com/v1/rewards_redeemed?customer_id=' + company.customer.customer_id + '&company_id=' + company.companies.company_id).then(function (response) {
       if (response.data.error === true) {
         _this.error_msg = 'Failed To load data';
       } else {
@@ -2733,7 +2737,7 @@ __webpack_require__.r(__webpack_exports__);
       data.append('company_id', this.companyid);
       axios.post("http://testrewardsapi.dczambia.com/v1/register?company_id=" + this.companyid, data).then(function (response) {
         //if response error == true
-        if (response.data.error === true) {
+        if (response.data.error == true) {
           _this.errorMessages = response.data.message;
         } else {
           //collect data for session
@@ -2913,10 +2917,10 @@ __webpack_require__.r(__webpack_exports__);
 
       this.errorMessages = '';
       var data = new FormData();
-      data.append('emailorPhone', this.phone);
+      data.append('mobile', this.phone);
       data.append('company_id', this.companyid);
       axios.post("http://testrewardsapi.dczambia.com/v1/pin_request", data).then(function (response) {
-        if (response.data.error === true) {
+        if (response.data.error == true) {
           _this.errorMessages = response.data.message;
         } else {
           _this.form1 = false;
@@ -2931,20 +2935,26 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.newpass != this.confirmpass) {
         this.errorMessages = 'Passwords Do not match';
-      }
+      } else {
+        var data = new FormData();
+        data.append('pin', this.otp);
+        data.append('mobile', this.phone);
+        data.append('company_id', this.companyid);
+        data.append('new_password', this.confirmpass);
+        axios.post("http://testrewardsapi.dczambia.com/v1/reset_password", data).then(function (response) {
+          //if response error == true
+          if (response.data.error === true) {
+            _this2.errorMessages = response.data.message;
+          } else {
+            //redirect to success page
+            var r = confirm("You have successfully changed your password");
 
-      var data = new FormData();
-      data.append('pin', this.otp);
-      data.append('phone', this.phone);
-      data.append('company_id', this.companyid);
-      data.append('new_password', this.confirmpass);
-      axios.post("http://testrewardsapi.dczambia.com/v1/reset_password", data).then(function (response) {
-        //if response error == true
-        if (response.data.error === true) {
-          _this2.errorMessages = response.data.message;
-        } else {//redirect to success page
-        }
-      })["catch"](function (error) {});
+            if (r == true) {
+              window.location.assign('index.php?q=' + comphash);
+            } else {}
+          }
+        })["catch"](function (error) {});
+      }
     }
   }
 });
@@ -23594,7 +23604,7 @@ var render = function() {
                 ],
                 staticClass: "form-control",
                 attrs: {
-                  type: "text",
+                  type: "date",
                   id: "inputDateofBirth",
                   placeholder: "Date of Birth (dd/mm/yyyy)"
                 },
@@ -23870,7 +23880,7 @@ var render = function() {
                     staticClass: "form-control",
                     attrs: {
                       type: "password",
-                      id: "inputPassword",
+                      id: "inputPassword2",
                       placeholder: "Confirm New Password"
                     },
                     domProps: { value: _vm.confirmpass },
