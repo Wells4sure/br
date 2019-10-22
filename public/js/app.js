@@ -22435,7 +22435,7 @@ var render = function() {
             return _c(
               "div",
               {
-                key: rewards_earned.reward_campaign_id,
+                key: rewards_earned.index,
                 staticClass: "card bg-light text-dark my-card"
               },
               [
@@ -22643,7 +22643,7 @@ var render = function() {
             return _c(
               "div",
               {
-                key: earned.reward_campaign_id,
+                key: earned.index,
                 staticClass: "card bg-light text-dark my-card mb-5"
               },
               [
@@ -23268,7 +23268,7 @@ var render = function() {
             return _c(
               "div",
               {
-                key: redemption.reward_campaign_id,
+                key: redemption.index,
                 staticClass: "card bg-light text-dark my-card"
               },
               [

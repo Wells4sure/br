@@ -3,7 +3,7 @@
         <div class="text-center m-2" v-text="error_msg" style="color:red;" v-if="error_msg"></div>
 
 <div v-if="redemptions" >
-        <div class="card bg-light text-dark my-card" v-for="redemption in redemptions " :key="redemption.reward_campaign_id">
+        <div class="card bg-light text-dark my-card" v-for="redemption in redemptions " :key="redemption.index">
             <div class="card-body">
                 <div class="row">
 

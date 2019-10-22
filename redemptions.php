@@ -93,6 +93,3 @@
     <script src="https://kit.fontawesome.com/a614006877.js" crossorigin="anonymous"></script>
 </body>
 </html>
-<script>
-    console.log(sessionStorage.getItem('person'));
-</script>

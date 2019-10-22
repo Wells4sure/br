@@ -3,7 +3,7 @@
         <div class="text-center m-2" v-text="error_msg" style="color:red;" v-if="error_msg"></div>
 
 <div v-if="earnings"  >
-        <div class="card bg-light text-dark my-card mb-5" v-for="earned in earnings " :key="earned.reward_campaign_id">
+        <div class="card bg-light text-dark my-card mb-5" v-for="earned in earnings " :key="earned.index">
             <div class="card-body">
                 <div class="row">
 
