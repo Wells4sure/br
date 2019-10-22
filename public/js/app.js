@@ -23915,121 +23915,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/sections/MyCarousel.vue?vue&type=template&id=07058552&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/sections/MyCarousel.vue?vue&type=template&id=07058552& ***!
-  \**********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "carousel slide",
-        attrs: { id: "myCarousel", "data-ride": "carousel" }
-      },
-      [
-        _c("ol", { staticClass: "carousel-indicators" }, [
-          _c("li", {
-            staticClass: "active",
-            attrs: { "data-target": "#myCarousel", "data-slide-to": "0" }
-          }),
-          _vm._v(" "),
-          _c("li", {
-            attrs: { "data-target": "#myCarousel", "data-slide-to": "1" }
-          }),
-          _vm._v(" "),
-          _c("li", {
-            attrs: { "data-target": "#myCarousel", "data-slide-to": "2" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "carousel-inner" }, [
-          _c("div", { staticClass: "carousel-item active" }, [
-            _c(
-              "div",
-              {
-                staticClass: "hero-image",
-                staticStyle: {
-                  "background-image":
-                    "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/c1.jpg')"
-                }
-              },
-              [
-                _c("div", { staticClass: "hero-text" }, [
-                  _c("h1", { staticStyle: { "font-size": "50px" } }, [
-                    _vm._v("Shop & Earn")
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "carousel-item" }, [
-            _c(
-              "div",
-              {
-                staticClass: "hero-image",
-                staticStyle: {
-                  "background-image":
-                    "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/c3.png')"
-                }
-              },
-              [
-                _c("div", { staticClass: "hero-text" }, [
-                  _c("h1", { staticStyle: { "font-size": "50px" } }, [
-                    _vm._v("Cake Bar Rewards")
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "carousel-item" }, [
-            _c(
-              "div",
-              {
-                staticClass: "hero-image",
-                staticStyle: {
-                  "background-image":
-                    "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/c2.jpg')"
-                }
-              },
-              [
-                _c("div", { staticClass: "hero-text" }, [
-                  _c("h1", { staticStyle: { "font-size": "50px" } }, [
-                    _vm._v("Check out the Latest Deals")
-                  ])
-                ])
-              ]
-            )
-          ])
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/sections/MyProfile.vue?vue&type=template&id=9644e9b2&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/sections/MyProfile.vue?vue&type=template&id=9644e9b2& ***!
@@ -37069,18 +36954,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _MyCarousel_vue_vue_type_template_id_07058552___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyCarousel.vue?vue&type=template&id=07058552& */ "./resources/js/components/sections/MyCarousel.vue?vue&type=template&id=07058552&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
 var script = {}
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
   script,
-  _MyCarousel_vue_vue_type_template_id_07058552___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _MyCarousel_vue_vue_type_template_id_07058552___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  render,
+  staticRenderFns,
   false,
   null,
   null,
@@ -37088,28 +36972,8 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   
 )
 
-/* hot reload */
-if (false) { var api; }
 component.options.__file = "resources/js/components/sections/MyCarousel.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/sections/MyCarousel.vue?vue&type=template&id=07058552&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/components/sections/MyCarousel.vue?vue&type=template&id=07058552& ***!
-  \****************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyCarousel_vue_vue_type_template_id_07058552___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MyCarousel.vue?vue&type=template&id=07058552& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/sections/MyCarousel.vue?vue&type=template&id=07058552&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyCarousel_vue_vue_type_template_id_07058552___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyCarousel_vue_vue_type_template_id_07058552___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
 
 /***/ }),
 

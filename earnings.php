@@ -38,44 +38,9 @@
 
 <main role="main">
 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-      
-        <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/s2.jpg');">
-        <div class="hero-text">
-            <h1 style="font-size:50px">Shop & Earn</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, tempore. Temporibus obcaecati aliquam praesentium tempora.</p>
-            
-        </div>
-        </div>
-
-      </div>
-      <div class="carousel-item">
-      <div class="hero-image"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/s1.png');">
-        <div class="hero-text">
-            <h1 style="font-size:50px">Cake Bar Rewards</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, tempore. Temporibus obcaecati aliquam praesentium tempora.</p>
-            
-        </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-      <div class="hero-image"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/s3.jpg');">
-        <div class="hero-text">
-            <h1 style="font-size:50px">Get more when you shop</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, tempore. Temporibus obcaecati aliquam praesentium tempora.</p>
-            
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<?php
+  require 'mycarousel.php';
+?>
 
 
   <!-- Marketing messaging and featurettes
@@ -117,7 +82,7 @@
   <!-- FOOTER -->
   <footer class="container">
     <p class="float-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2019 Book Now Zambia. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <!-- <p>&copy; 2019 Book Now Zambia. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
   </footer>
 </main>
 </body>
