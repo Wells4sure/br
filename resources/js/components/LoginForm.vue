@@ -1,11 +1,11 @@
 <template>
 <div class="container">
-<h1 class="form-heading">BUSINESS REWARDS</h1>
+<h1 class="form-heading text-center">BUSINESS REWARDS</h1>
 <div class="login-form">
 <div class="main-div">
     <div class="panel">
     
-   <img :src="'public/images/companylogos/'+camplogo" class="img-responsive mb-2" alt="The cakebar">
+   <img :src="'public/images/companylogos/'+complogo" class="img-responsive mb-2" alt="The cakebar">
 
    <p>Please enter your email/Phone and password</p>
    </div>
@@ -23,11 +23,11 @@
 
         </div>
         <div class="forgot">
-        <a href="pin_request.php">Forgot password?</a>
+        <a :href="'pin_request.php?q='+comphash">Forgot password?</a>
 </div>
         <button  class="btn btn-primary"  @click="submit">Login</button>
          <div class="forgot">
-        <a href="register.php">Need an account? Register here</a>
+        <a :href="'register.php?q='+comphash">Need an account? Register here</a>
 </div>
 
     </form>
@@ -99,10 +99,19 @@ p.err_msg span{
     cursor: pointer;
     color:brown;
 }
+img.img-responsive.mb-2 {
+    width: 100%;
+    max-width: 220px;
+}
  @media screen and (max-width: 767px) {
   .main-div {
     max-width: 90%;
+    padding: 10px;
   }
+  img.img-responsive.mb-2 {
+    width: 100%;
+    max-width: 145px;
+}
 }
 </style>
 
@@ -110,8 +119,9 @@ p.err_msg span{
     export default {
         name:'login',
         props: [
-            'camplogo',
-            'company'
+            'complogo',
+            'company',
+            'comphash'
         ],
         data() {
               return {

@@ -21,11 +21,11 @@ body {
   
   /* Declare heights because of positioning of img element */
   .carousel-item {
-    height: 25rem;
+    height: 15rem;
   }
  
   .hero-image {
-    height: 25rem;
+    height: 15rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

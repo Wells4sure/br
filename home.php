@@ -47,30 +47,27 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
       
-        <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/s2.jpg');">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/c1.jpg');">
         <div class="hero-text">
             <h1 style="font-size:50px">Shop & Earn</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, tempore. Temporibus obcaecati aliquam praesentium tempora.</p>
             
         </div>
         </div>
 
       </div>
       <div class="carousel-item">
-      <div class="hero-image"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/s1.png');">
+      <div class="hero-image"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/c3.png');">
         <div class="hero-text">
             <h1 style="font-size:50px">Cake Bar Rewards</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, tempore. Temporibus obcaecati aliquam praesentium tempora.</p>
+        
             
         </div>
         </div>
       </div>
       <div class="carousel-item">
-      <div class="hero-image"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/s3.jpg');">
+      <div class="hero-image"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/c2.jpg');">
         <div class="hero-text">
-            <h1 style="font-size:50px">Get more when you shop</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, tempore. Temporibus obcaecati aliquam praesentium tempora.</p>
-            
+            <h1 style="font-size:50px">Check out the Latest Deals</h1>            
         </div>
         </div>
       </div>

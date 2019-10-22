@@ -11,6 +11,9 @@ Vue.component('redemption-comp', require('./components/RedemptionComp.vue').defa
 Vue.component('earning-comp', require('./components/EarningComp.vue').default);
 Vue.component('profile-comp', require('./components/ProfileComp.vue').default);
 Vue.component('register-comp', require('./components/RegisterComp.vue').default);
+Vue.component('reset-comp', require('./components/ResetComp.vue').default);
+Vue.component('my-profile', require('./components/sections/MyProfile.vue').default);
+Vue.component('my-carousel', require('./components/sections/MyCarousel.vue').default);
 
 const app = new Vue({
     el: '#app',

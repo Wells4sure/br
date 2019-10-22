@@ -1,7 +1,9 @@
 @charset "UTF-8";
 
-html {
+html,
+body {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 /*!
@@ -10646,10 +10648,5 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
-}
-
-body,
-html {
-  height: 100%;
 }
 
