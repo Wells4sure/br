@@ -1927,7 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var company = JSON.parse(sessionStorage.getItem('person'));
     axios.get('http://testrewardsapi.dczambia.com/v1/reward_campaigns?company_id=' + company.companies.company_id).then(function (response) {
-      if (response.data.error === true) {
+      if (response.data.error == true) {
         _this.error_msg = 'Failed To load data';
       } else {
         _this.campaigns = response.data.reward_campaigns;
@@ -2048,7 +2048,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var company = JSON.parse(sessionStorage.getItem('person'));
     axios.get('http://testrewardsapi.dczambia.com/v1/rewards_earned?customer_id=' + company.customer.customer_id + '&company_id=' + company.companies.company_id).then(function (response) {
-      if (response.data.error === true) {
+      if (response.data.error == true) {
         _this.error_msg = 'Failed To load data';
       } else {
         _this.rewards_earnings = response.data.rewards_earned;
@@ -2140,7 +2140,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var company = JSON.parse(sessionStorage.getItem('person'));
     axios.get('http://testrewardsapi.dczambia.com/v1/transactions?company_id=' + company.companies.company_id + '&customer_id=' + company.customer.customer_id + '').then(function (response) {
-      if (response.data.error === true) {
+      if (response.data.error == true) {
         _this.error_msg = 'Failed To load data';
       } else {
         _this.earnings = response.data.transactions;
@@ -2387,7 +2387,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var company = JSON.parse(sessionStorage.getItem('person'));
     axios.get('http://testrewardsapi.dczambia.com/v1/points?customer_id=' + company.customer.customer_id + '&company_id=' + company.companies.company_id + '').then(function (response) {
-      if (response.data.error === true) {
+      if (response.data.error == true) {
         _this.error_msg = 'Failed To load data';
       } else {
         _this.points = response.data.points[0].points;
@@ -2550,7 +2550,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var company = JSON.parse(sessionStorage.getItem('person'));
     axios.get('http://testrewardsapi.dczambia.com/v1/rewards_redeemed?customer_id=' + company.customer.customer_id + '&company_id=' + company.companies.company_id).then(function (response) {
-      if (response.data.error === true) {
+      if (response.data.error == true) {
         _this.error_msg = 'Failed To load data';
       } else {
         _this.redemptions = response.data.rewards_redeemed;
@@ -22804,7 +22804,7 @@ var render = function() {
             staticClass: "img-responsive mb-2",
             attrs: {
               src: "public/images/companylogos/" + _vm.complogo,
-              alt: "The cakebar"
+              alt: "Logo Image"
             }
           }),
           _vm._v(" "),
@@ -23442,7 +23442,7 @@ var render = function() {
             staticClass: "img-responsive mb-2",
             attrs: {
               src: "public/images/companylogos/" + _vm.complogo,
-              alt: "The cakebar"
+              alt: "Logo Image"
             }
           }),
           _vm._v(" "),
@@ -23703,7 +23703,7 @@ var render = function() {
             staticClass: "img-responsive mb-2",
             attrs: {
               src: "public/images/companylogos/" + _vm.complogo,
-              alt: "The cakebar"
+              alt: "Logo Image"
             }
           }),
           _vm._v(" "),
