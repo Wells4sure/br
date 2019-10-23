@@ -13,7 +13,7 @@ Vue.component('profile-comp', require('./components/ProfileComp.vue').default);
 Vue.component('register-comp', require('./components/RegisterComp.vue').default);
 Vue.component('reset-comp', require('./components/ResetComp.vue').default);
 Vue.component('my-profile', require('./components/sections/MyProfile.vue').default);
-Vue.component('my-carousel', require('./components/sections/MyCarousel.vue').default);
+Vue.component('company-name', require('./components/sections/CompanyName.vue').default);
 
 const app = new Vue({
     el: '#app',

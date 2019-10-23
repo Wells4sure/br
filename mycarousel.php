@@ -18,7 +18,9 @@
       <div class="carousel-item">
       <div class="hero-image"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/c3.png');">
         <div class="hero-text">
-            <h1 style="font-size:50px">Cake Bar Rewards</h1>
+            <h1 style="font-size:50px" id="companyName" > 
+            <company-name></company-name>
+          </h1>
         
             
         </div>
