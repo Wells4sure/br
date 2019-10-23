@@ -2128,11 +2128,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    size: {
+      type: Number,
+      required: false,
+      "default": 1
+    }
+  },
   data: function data() {
     return {
-      'earnings': [],
-      'error_msg': ''
+      earnings: [],
+      error_msg: '',
+      pageNumber: 0
     };
   },
   mounted: function mounted() {
@@ -2148,6 +2161,26 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       console.log('failed');
     });
+  },
+  computed: {
+    pageCount: function pageCount() {
+      var l = this.earnings.length,
+          s = this.size;
+      return Math.ceil(l / s);
+    },
+    paginatedData: function paginatedData() {
+      var start = this.pageNumber * this.size,
+          end = start + this.size;
+      return this.earnings.slice(start, end);
+    }
+  },
+  methods: {
+    nextPage: function nextPage() {
+      this.pageNumber++;
+    },
+    prevPage: function prevPage() {
+      this.pageNumber--;
+    }
   }
 });
 
@@ -22669,71 +22702,109 @@ var render = function() {
     _vm.earnings
       ? _c(
           "div",
-          _vm._l(_vm.earnings, function(earned) {
-            return _c(
-              "div",
-              {
-                key: earned.index,
-                staticClass: "card bg-light text-dark my-card mb-5"
-              },
-              [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _vm._m(0, true),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("h5", [_vm._v("Store Name:")]),
+          [
+            _vm._l(_vm.paginatedData, function(p) {
+              return _c(
+                "div",
+                {
+                  key: p.index,
+                  staticClass: "card bg-light text-dark my-card mb-5"
+                },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _vm._m(0, true),
                       _vm._v(" "),
-                      _c("p", {
-                        domProps: { textContent: _vm._s(earned.branch_name) }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(1, true),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("h5", [_vm._v("Reciept Number:")]),
+                      _c("div", { staticClass: "col-sm-10" }, [
+                        _c("h5", [_vm._v("Store Name:")]),
+                        _vm._v(" "),
+                        _c("p", {
+                          domProps: { textContent: _vm._s(p.branch_name) }
+                        })
+                      ]),
                       _vm._v(" "),
-                      _c("p", {
-                        domProps: { textContent: _vm._s(earned.receipt_number) }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(2, true),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("h5", [_vm._v("Amount Spent:")]),
+                      _vm._m(1, true),
                       _vm._v(" "),
-                      _c("p", {
-                        domProps: { textContent: _vm._s(earned.amount) }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(3, true),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("h5", [_vm._v("Points Earned:")]),
+                      _c("div", { staticClass: "col-sm-10" }, [
+                        _c("h5", [_vm._v("Reciept Number:")]),
+                        _vm._v(" "),
+                        _c("p", {
+                          domProps: { textContent: _vm._s(p.receipt_number) }
+                        })
+                      ]),
                       _vm._v(" "),
-                      _c("p", {
-                        domProps: { textContent: _vm._s(earned.points_earned) }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(4, true),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-10" }, [
-                      _c("h5", [_vm._v("Date:")]),
+                      _vm._m(2, true),
                       _vm._v(" "),
-                      _c("p", {
-                        domProps: { textContent: _vm._s(earned.created_at) }
-                      })
+                      _c("div", { staticClass: "col-sm-10" }, [
+                        _c("h5", [_vm._v("Amount Spent:")]),
+                        _vm._v(" "),
+                        _c("p", { domProps: { textContent: _vm._s(p.amount) } })
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3, true),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-10" }, [
+                        _c("h5", [_vm._v("Points Earned:")]),
+                        _vm._v(" "),
+                        _c("p", {
+                          domProps: { textContent: _vm._s(p.points_earned) }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(4, true),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-10" }, [
+                        _c("h5", [_vm._v("Date:")]),
+                        _vm._v(" "),
+                        _c("p", {
+                          domProps: { textContent: _vm._s(p.created_at) }
+                        })
+                      ])
                     ])
                   ])
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "pagination justify-content-center",
+                staticStyle: { margin: "20px 0" }
+              },
+              [
+                _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#", disabled: _vm.pageNumber == 0 },
+                      on: { click: _vm.prevPage }
+                    },
+                    [_vm._v("Previous")]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(5),
+                _vm._v(" "),
+                _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: {
+                        href: "#",
+                        disabled: _vm.pageNumber >= _vm.pageCount - 1
+                      },
+                      on: { click: _vm.nextPage }
+                    },
+                    [_vm._v("Next")]
+                  )
                 ])
               ]
             )
-          }),
-          0
+          ],
+          2
         )
       : _vm._e()
   ])
@@ -22798,6 +22869,16 @@ var staticRenderFns = [
         staticClass: "img img-responsive my-img",
         attrs: { src: "public/images/icons/calendar.svg", alt: "finance_medal" }
       })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "page-item disabled" }, [
+      _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+        _vm._v("...")
+      ])
     ])
   }
 ]

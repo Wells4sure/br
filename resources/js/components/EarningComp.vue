@@ -3,7 +3,7 @@
         <div class="text-center m-2" v-text="error_msg" style="color:red;" v-if="error_msg"></div>
 
 <div v-if="earnings"  >
-        <div class="card bg-light text-dark my-card mb-5" v-for="earned in earnings " :key="earned.index">
+        <div class="card bg-light text-dark my-card mb-5" v-for="p in paginatedData " :key="p.index">
             <div class="card-body">
                 <div class="row">
 
@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-10">
                         <h5>Store Name:</h5>
-                        <p v-text="earned.branch_name"></p>
+                        <p v-text="p.branch_name"></p>
                     </div>
 
                     <div class="col-sm-2 text-center">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-sm-10">
                         <h5>Reciept Number:</h5>
-                        <p v-text="earned.receipt_number"></p>
+                        <p v-text="p.receipt_number"></p>
                     </div>
 
                     <div class="col-sm-2 text-center">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-sm-10">
                         <h5>Amount Spent:</h5>
-                        <p v-text="earned.amount"></p>
+                        <p v-text="p.amount"></p>
                     </div>
 
                     <div class="col-sm-2 text-center">
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-sm-10">
                         <h5>Points Earned:</h5>
-                        <p v-text="earned.points_earned"></p>
+                        <p v-text="p.points_earned"></p>
                     </div>
 
                     <div class="col-sm-2 text-center">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-sm-10">
                         <h5>Date:</h5>
-                        <p v-text="earned.created_at"></p>
+                        <p v-text="p.created_at"></p>
                     </div>
 
                    
@@ -52,16 +52,31 @@
 
             </div>
         </div>
-   
+        <ul class="pagination justify-content-center" style="margin:20px 0">
+            <li class="page-item"><a class="page-link" href="#" @click="prevPage" :disabled="pageNumber==0" >Previous</a></li>
+            <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+            <li class="page-item"><a class="page-link" href="#" @click="nextPage" :disabled="pageNumber >= pageCount -1">Next</a></li>
+        </ul>
+
         </div>
     </div>
 </template>
 <script>
 export default {
+        props:{
+
+        size:{
+        type:Number,
+        required:false,
+        default: 1
+        }
+    },
+
         data() {
             return{
-                'earnings':[],
-                'error_msg':''
+                earnings:[],
+                error_msg:'',
+                pageNumber: 0
             }
         },
       mounted() {
@@ -78,6 +93,26 @@ export default {
                 
           console.log('failed')
             })
+        },
+         computed: {
+             pageCount(){
+                    let l = this.earnings.length,
+                        s = this.size;
+                    return Math.ceil(l/s);
+                },
+                paginatedData(){
+                    const start = this.pageNumber * this.size,
+                        end = start + this.size;
+                    return this.earnings.slice(start, end);
+                }
+         },
+        methods:{
+            nextPage(){
+                this.pageNumber++;
+            },
+            prevPage(){
+                this.pageNumber--;
+            }
         }
 }
 </script>
