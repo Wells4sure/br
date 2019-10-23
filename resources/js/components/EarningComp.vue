@@ -68,7 +68,7 @@ export default {
           var company = JSON.parse(sessionStorage.getItem('person'));
              axios.get('http://testrewardsapi.dczambia.com/v1/transactions?company_id='+company.companies.company_id+'&customer_id='+company.customer.customer_id+'')
               .then(response => {
-                  if(response.data.error === true){
+                  if(response.data.error == true){
                       this.error_msg = 'Failed To load data'
                   }else{
                       this.earnings =response.data.transactions

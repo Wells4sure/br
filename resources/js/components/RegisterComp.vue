@@ -5,7 +5,7 @@
 <div class="main-div">
     <div class="panel">
     
-   <img :src="'public/images/companylogos/'+complogo" class="img-responsive mb-2" alt="The cakebar">
+   <img :src="'public/images/companylogos/'+complogo" class="img-responsive mb-2" alt="Logo Image">
 
    <p>Fill out the form to Register for rewards</p>
    </div>
