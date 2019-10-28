@@ -1914,6 +1914,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2036,6 +2042,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2070,6 +2079,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2317,7 +2331,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['complogo', 'company', 'comphash'],
   data: function data() {
     return {
-      submitStatus: null,
+      submitStatus: false,
       emailorPhone: '',
       password: '',
       errorMessages: '',
@@ -2329,6 +2343,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.errorMessages = '';
+      this.submitStatus = true;
       var data = new FormData();
       data.append('emailorPhone', this.emailorPhone);
       data.append('password', this.password);
@@ -2337,13 +2352,16 @@ __webpack_require__.r(__webpack_exports__);
         //if response error == true
         if (response.data.error == true) {
           _this.errorMessages = response.data.message;
+          _this.submitStatus = false;
         } else {
           //collect data for session
           var customer = response.data;
           sessionStorage.setItem('person', JSON.stringify(customer));
           window.location.assign('home.php');
         }
-      })["catch"](function (error) {});
+      })["catch"](function (error) {
+        _this.submitStatus = false;
+      });
     }
   }
 });
@@ -2360,6 +2378,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var countup_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! countup.js */ "./node_modules/countup.js/dist/countUp.min.js");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2514,6 +2538,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -2933,7 +2960,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['complogo', 'company', 'comphash'],
   data: function data() {
     return {
-      submitStatus: null,
+      submitStatus: false,
       phone: '',
       otp: '',
       newpass: '',
@@ -2948,23 +2975,26 @@ __webpack_require__.r(__webpack_exports__);
     submit_phone: function submit_phone() {
       var _this = this;
 
-      this.errorMessages = '';
       var data = new FormData();
       data.append('mobile', this.phone);
       data.append('company_id', this.companyid);
+      this.submitStatus = true;
       axios.post("http://testrewardsapi.dczambia.com/v1/pin_request", data).then(function (response) {
-        if (response.data.error == true) {
+        if (response.data.error === true) {
           _this.errorMessages = response.data.message;
         } else {
           _this.form1 = false;
           _this.form2 = true;
         }
+      })["catch"](function (error) {
+        _this.errorMessages = "Data provided is not correct";
+        _this.submitStatus = false;
       });
     },
     submit_pass: function submit_pass() {
       var _this2 = this;
 
-      this.errorMessages = '';
+      this.submitStatus = true;
 
       if (this.newpass != this.confirmpass) {
         this.errorMessages = 'Passwords Do not match';
@@ -2986,7 +3016,10 @@ __webpack_require__.r(__webpack_exports__);
               window.location.assign('index.php?q=' + comphash);
             } else {}
           }
-        })["catch"](function (error) {});
+        })["catch"](function (error) {
+          _this2.errorMessages = "Data provided is not correct";
+          _this2.submitStatus = false;
+        });
       }
     }
   }
@@ -22358,6 +22391,16 @@ var render = function() {
           }),
           0
         )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.campaigns.length == 0
+      ? _c("div", { staticClass: "text-center" }, [
+          _c("h3", [
+            _vm._v(
+              " Currently no Campaigns runing at the momment please check back later "
+            )
+          ])
+        ])
       : _vm._e()
   ])
 }
@@ -22578,6 +22621,16 @@ var render = function() {
           }),
           0
         )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.rewards_earnings.length == 0
+      ? _c("div", { staticClass: "text-center" }, [
+          _c("h3", [
+            _vm._v(
+              " You have not earned any reward points yet, please purchase items from the store to earn points "
+            )
+          ])
+        ])
       : _vm._e()
   ])
 }
@@ -22699,7 +22752,7 @@ var render = function() {
         })
       : _vm._e(),
     _vm._v(" "),
-    _vm.earnings
+    _vm.earnings.length
       ? _c(
           "div",
           [
@@ -22806,6 +22859,16 @@ var render = function() {
           ],
           2
         )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.earnings.length == 0
+      ? _c("div", { staticClass: "text-center" }, [
+          _c("h3", [
+            _vm._v(
+              " You have not earned any reward, please check again later. "
+            )
+          ])
+        ])
       : _vm._e()
   ])
 }
@@ -23019,7 +23082,11 @@ var render = function() {
             _vm._v(" "),
             _c(
               "button",
-              { staticClass: "btn btn-primary", on: { click: _vm.submit } },
+              {
+                staticClass: "btn btn-primary",
+                attrs: { disabled: _vm.submitStatus },
+                on: { click: _vm.submit }
+              },
               [_vm._v("Login")]
             ),
             _vm._v(" "),
@@ -23128,6 +23195,16 @@ var render = function() {
                 ])
               ])
             ])
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.points.length == 0
+      ? _c("div", { staticClass: "text-center" }, [
+          _c("h3", [
+            _vm._v(
+              " You have no points that have been earned at the moment, please check again later. "
+            )
           ])
         ])
       : _vm._e()
@@ -23451,6 +23528,12 @@ var render = function() {
           }),
           0
         )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.redemptions.length == 0
+      ? _c("div", { staticClass: "text-center" }, [
+          _c("h3", [_vm._v(" You have not redeemed any rewards ")])
+        ])
       : _vm._e()
   ])
 }
@@ -23828,7 +23911,7 @@ var render = function() {
                 staticClass: "err_msg",
                 domProps: { textContent: _vm._s(_vm.errorMessages) }
               },
-              [_c("span", { staticClass: "fas fa-times" })]
+              [_c("span", { staticClass: "fa fa-times" })]
             )
           : _vm._e(),
         _vm._v(" "),
@@ -23867,7 +23950,8 @@ var render = function() {
                     attrs: {
                       type: "text",
                       id: "inputEmail",
-                      placeholder: "Phone Number"
+                      placeholder: "Phone Number",
+                      required: ""
                     },
                     domProps: { value: _vm.phone },
                     on: {
@@ -23885,6 +23969,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-primary",
+                    attrs: { disabled: _vm.submitStatus },
                     on: { click: _vm.submit_phone }
                   },
                   [_vm._v("NEXT")]

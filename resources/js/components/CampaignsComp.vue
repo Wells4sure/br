@@ -50,6 +50,12 @@
             </div>
         </div>
         </div>
+        <div class="text-center" v-if="campaigns.length==0">
+            <h3> Currently no Campaigns runing at the momment please check back later </h3>
+        </div>
+
+
+
     </div>
 </template>
 <script>

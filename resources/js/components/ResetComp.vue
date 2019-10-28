@@ -9,15 +9,15 @@
 
    <p>Please enter your Phone to Reset Password</p>
    </div>
-   <p class="err_msg" v-if="errorMessages" v-text="errorMessages"> <span class="fas fa-times"></span></p>
+   <p class="err_msg" v-if="errorMessages" v-text="errorMessages"> <span class="fa fa-times"></span></p>
    <!-- Form one -->
     <form id="Login" @submit.prevent="" v-on:keyup.enter="submit_phone" v-if="form1==true">
 
         <div class="form-group">
-            <input type="text" class="form-control" id="inputEmail" placeholder="Phone Number"  v-model="phone">
+            <input type="text" class="form-control" id="inputEmail" placeholder="Phone Number"  v-model="phone" required>
         </div>
    
-        <button  class="btn btn-primary"  @click="submit_phone">NEXT</button>
+        <button  class="btn btn-primary"  @click="submit_phone" :disabled="submitStatus">NEXT</button>
          <div class="forgot">
           <a :href="'register.php?q='+comphash">Need an account? Register here</a>
         </div>
@@ -142,38 +142,44 @@ img.img-responsive.mb-2 {
         ],
         data() {
               return {
-                submitStatus: null,
-                  phone: '',
-                  otp:'',
-                  newpass:'',
-                  confirmpass:'',
-                  errorMessages: '',
-                  companyid: this.company,
-                  form1:true,
-                  form2:false,
+                submitStatus: false,
+                phone: '',
+                otp:'',
+                newpass:'',
+                confirmpass:'',
+                errorMessages: '',
+                companyid: this.company,
+                form1:true,
+                form2:false,
               
               
               }
           },
       methods: {
         submit_phone(){
-           this.errorMessages='';
+         
            let data = new FormData();
            data.append('mobile', this.phone);
            data.append('company_id', this.companyid);
+           this.submitStatus=true
 
           axios.post("http://testrewardsapi.dczambia.com/v1/pin_request", data)
            .then(response => {
-             if(response.data.error == true){
+             if(response.data.error === true){
                this.errorMessages=response.data.message
              }else{
               this.form1 =false;
               this.form2 =true;
              }
-           })
+           }).catch(error => {       
+                this.errorMessages="Data provided is not correct"
+                this.submitStatus=false
+
+          })
         },
           submit_pass () {
-          this.errorMessages='';
+             this.submitStatus=true;
+        
         
               if(this.newpass !=this.confirmpass){
                  this.errorMessages='Passwords Do not match';
@@ -203,7 +209,8 @@ img.img-responsive.mb-2 {
                     }
                   }
                 }).catch(error => {
-                
+                  this.errorMessages="Data provided is not correct"
+                  this.submitStatus=false
          
                 })
 

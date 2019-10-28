@@ -53,6 +53,9 @@
             </div>
         </div>
         </div>
+        <div class="text-center" v-if="redemptions.length==0">
+            <h3> You have not redeemed any rewards </h3>
+        </div>
     </div>
 </template>
 <script>
@@ -72,6 +75,7 @@ export default {
                   }else{
 
                       this.redemptions = response.data.rewards_redeemed;
+           
                   }
               }).catch(error => {
                 

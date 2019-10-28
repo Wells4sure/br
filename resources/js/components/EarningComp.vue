@@ -2,7 +2,7 @@
     <div>
         <div class="text-center m-2" v-text="error_msg" style="color:red;" v-if="error_msg"></div>
 
-<div v-if="earnings"  >
+<div v-if="earnings.length"  >
         <div class="card bg-light text-dark my-card mb-5" v-for="p in paginatedData " :key="p.index">
             <div class="card-body">
                 <div class="row">
@@ -59,6 +59,11 @@
         </ul>
 
         </div>
+
+        <div class="text-center" v-if="earnings.length==0">
+            <h3> You have not earned any reward, please check again later. </h3>
+        </div>
+
     </div>
 </template>
 <script>

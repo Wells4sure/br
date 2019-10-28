@@ -1,5 +1,5 @@
 <?php
-require_once('app/sessions.php');
+require_once('app/config/company.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +8,11 @@ require_once('app/sessions.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cake Bar Rewards | Suucess</title>
+    <title>Cake Bar Rewards | Success</title>
+    <link rel="stylesheet" href="public/css/app.css">
 </head>
-<body>
+<body style="background:#e9ecef;">
+<div id="app">
 <div class="jumbotron text-center">
   <h1 class="display-3">Thank You!</h1>
   <p class="lead"><strong>Please check your phone or email</strong> for information regarding your account setup.</p>
@@ -19,10 +21,10 @@ require_once('app/sessions.php');
     Having trouble? <a href="">Contact us</a>
   </p>
   <p class="lead">
-    <a class="btn btn-primary btn-sm" href="index.php" role="button">Login Here</a>
+    <a class="btn btn-primary btn-lg" href="index.php?q=<?php echo $hashed_comp_id;?>" role="button">Login Here</a>
   </p>
 </div>
-
+</div>
     <!-- Theme JS -->
     
     <script src="public/js/app.js"></script>

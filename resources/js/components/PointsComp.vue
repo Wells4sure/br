@@ -42,6 +42,12 @@
                     </div>
             </div>
         </div>
+
+        
+        <div class="text-center" v-if="points.length==0">
+            <h3> You have no points that have been earned at the moment, please check again later. </h3>
+        </div>
+
     </div>
 </template>
 <script>

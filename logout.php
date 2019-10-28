@@ -1,6 +1,6 @@
 <?php
 require_once 'app/config/config.php';
-$comp_link = $_SESSION["hashed_query"];
+@$comp_link = $_SESSION["hashed_query"];
 
 ?>
 <!DOCTYPE html>
@@ -20,6 +20,8 @@ $comp_link = $_SESSION["hashed_query"];
     <script src="https://kit.fontawesome.com/a614006877.js" crossorigin="anonymous"></script>
 <script>
     sessionStorage.clear();
+    window.location.assign('index.php?q=<?php echo $comp_link?>');
+// console.log(sessionStorage.getItem('person'))
 </script>
 <?php
 // remove all session variables
@@ -28,6 +30,5 @@ session_unset();
 // destroy the session
 session_destroy();
 
-header('Location:index.php?q='.$comp_link.'');
 exit();
 ?>

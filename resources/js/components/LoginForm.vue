@@ -25,7 +25,7 @@
         <div class="forgot">
         <a :href="'pin_request.php?q='+comphash">Forgot password?</a>
 </div>
-        <button  class="btn btn-primary"  @click="submit">Login</button>
+        <button  class="btn btn-primary"  @click="submit" :disabled="submitStatus">Login</button>
          <div class="forgot">
         <a :href="'register.php?q='+comphash">Need an account? Register here</a>
 </div>
@@ -125,7 +125,7 @@ img.img-responsive.mb-2 {
         ],
         data() {
               return {
-                submitStatus: null,
+                submitStatus: false,
                   emailorPhone: '',
                   password:'',
                   errorMessages: '',
@@ -137,6 +137,7 @@ img.img-responsive.mb-2 {
       methods: {
           submit () {
           this.errorMessages='';
+          this.submitStatus= true;
         
 
               let data = new FormData();
@@ -151,6 +152,7 @@ img.img-responsive.mb-2 {
                   if(response.data.error == true){
                 
                     this.errorMessages=response.data.message
+                    this.submitStatus= false;
                   }else{
                     //collect data for session
                     const customer=response.data;
@@ -161,8 +163,7 @@ img.img-responsive.mb-2 {
 
                   }
                 }).catch(error => {
-                
-         
+                 this.submitStatus= false;
                 })
 
             

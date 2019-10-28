@@ -61,6 +61,9 @@
             </div>
         </div>
         </div>
+        <div class="text-center" v-if="rewards_earnings.length==0">
+            <h3> You have not earned any reward points yet, please purchase items from the store to earn points </h3>
+        </div>
     </div>
 </template>
 <script>
